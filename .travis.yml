@@ -23,18 +23,6 @@ deploy:
 
   - provider: script
     skip_cleanup: true
-    script: npm run deploy:prod
-    on:
-      branch: master
-
-  - provider: script
-    skip_cleanup: true
-    script: npm run deploy:stage
-    on:
-      branch: beta
-
-  - provider: script
-    skip_cleanup: true
     script: npm run release
     on:
       branch: beta
