@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "name": "radio-gql",
+  "type": "docker",
+  "features": {
+    "cloud": "v2"
+  },
+  "alias": ["radio-gql.analogic.al"]
+}
