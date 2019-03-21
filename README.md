@@ -2,7 +2,7 @@
 ![Docker Pulls](https://img.shields.io/docker/pulls/ricardocasares/radio-gql.svg)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-# GraphQL API for http://www.radio-browser.info
+# GraphQL API for [radio-browser](http://www.radio-browser.info)
 
 Check the [playground](https://radio-gql.analogic.al)
 
