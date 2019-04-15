@@ -1,8 +1,10 @@
 const fetch = require("isomorphic-unfetch");
 
 const URL = "http://www.radio-browser.info/webservice";
-const BY_NAME = "/json/stations/byname";
-const SERVICE = `${URL}/${BY_NAME}`;
+const STATIONS = `/json/stations`;
+const BY_ID = `${STATIONS}/byid`;
+const BY_NAME = `${STATIONS}/byname`;
+
 const cfg = {
   method: "POST",
   headers: {
@@ -13,10 +15,15 @@ const cfg = {
   body: JSON.stringify({ order: "votes", reverse: "true", limit: 50 })
 };
 
-async function search(name) {
-  return fetch(`${SERVICE}/${name}`, cfg).then(res => res.json());
-}
+const get = async id =>
+  fetch(`${URL}${BY_ID}/${id}`, cfg)
+    .then(res => res.json())
+    .then(([station]) => station);
+
+const search = async name =>
+  fetch(`${URL}${BY_NAME}/${name}`, cfg).then(res => res.json());
 
 module.exports = {
+  get,
   search
 };
