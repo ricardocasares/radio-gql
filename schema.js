@@ -12,6 +12,9 @@ const StationType = new GraphQLObjectType({
   name: "Station",
   description: "Station object",
   fields: () => ({
+    id: {
+      type: GraphQLString
+    },
     url: {
       type: GraphQLString
     },
@@ -25,6 +28,10 @@ const StationType = new GraphQLObjectType({
     country: {
       type: GraphQLString,
       resolve: ({ country }) => country || null
+    },
+    state: {
+      type: GraphQLString,
+      resolve: ({ state }) => state || null
     },
     votes: {
       type: GraphQLInt,
