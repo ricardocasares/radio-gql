@@ -1,4 +1,4 @@
-const { search } = require("./client");
+const { get, search } = require("./client");
 const {
   GraphQLInt,
   GraphQLList,
@@ -50,14 +50,19 @@ const schema = new GraphQLSchema({
     name: "Query",
     description: "Station",
     fields: () => ({
+      station: {
+        type: StationType,
+        args: {
+          id: { type: new GraphQLNonNull(GraphQLInt) }
+        },
+        resolve: async (root, { id }) => get(id)
+      },
       stations: {
         type: new GraphQLList(StationType),
         args: {
           query: { type: new GraphQLNonNull(GraphQLString) }
         },
-        resolve: async (root, { query }) => {
-          return search(query);
-        }
+        resolve: async (root, { query }) => search(query)
       }
     })
   })
